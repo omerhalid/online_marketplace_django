@@ -1,7 +1,16 @@
 from django.shortcuts import render
 
+from item.models import Item, Category
+
 def index(request):
-    return render(request, 'core/index.html')
+    items = Item.objects.filter(is_sold=False).order_by('-created_at')[0:6]
+    categories = Category.objects.all()
+    
+    return render(request, 'core/index.html', {
+        'categories': categories, 
+        'items': items
+        })
 
 def contact(request):
     return render(request, 'core/contact.html')
+

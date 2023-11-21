@@ -24,7 +24,7 @@ This project is an online marketplace platform built with Django, a high-level P
 
 - Python 3.8+
 - pip
-- Virtualenv 
+- Virtualenv
 
 ## Usage
 

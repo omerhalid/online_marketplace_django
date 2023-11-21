@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import NewItemForm
 from .models import Item
@@ -13,7 +13,19 @@ def detail(request, pk): # pk is the primary key of the item
 
 @login_required # This is a decorator that requires the user to be logged in to access the view.
 def new(request):
-    form = NewItemForm()
+    
+    if request.method == 'POST':
+        form = NewItemForm(request.POST, request.FILES)
+        
+        if form.is_valid():
+            item = form.save(commit=False)
+            item.created_by = request.user
+            item.save()
+            
+            return redirect('item:detail', pk=item.id)
+    
+    else:
+        form = NewItemForm()
     
     return render(request, 'item/form.html', {
         'form': form,

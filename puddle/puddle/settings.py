@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-+1nk2*5y98few#umf$xn$h=u1k+=&8@+q47#qzn09ct%z+xfxo
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['3.120.245.161', 'noteplace.omercinar.xyz'] # new
 
 LOGIN_URL = '/login/' # new
 LOGIN_REDIRECT_URL = '/' # new

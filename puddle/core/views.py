@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-
+from django.contrib.auth import logout
 from item.models import Item, Category
 
 from .forms import SignupForm
@@ -31,3 +31,9 @@ def singup(request):
         form = SignupForm()
     
     return render(request, 'core/signup.html', {'form': form})
+
+
+def logout_view(request):
+    if request.method == 'POST':
+        logout(request)
+        return redirect('core:index')

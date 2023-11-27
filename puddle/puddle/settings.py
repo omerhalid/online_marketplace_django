@@ -25,9 +25,12 @@ SECRET_KEY = 'django-insecure-+1nk2*5y98few#umf$xn$h=u1k+=&8@+q47#qzn09ct%z+xfxo
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['3.120.245.161', 'noteplace.omercinar.xyz'] # new
+ALLOWED_HOSTS = ['3.120.245.161', 'noteplace.omercinar.xyz', '127.0.0.1', 'localhost'] # new
+
+FILE_UPLOAD_MAX_MEMORY_SIZE = 10485760  # Example: 10MB limit
 
 LOGIN_URL = '/login/' # new
+LOGOUT_URL = '/logout/' # new
 LOGIN_REDIRECT_URL = '/' # new
 LOGOUT_REDIRECT_URL = '/' # new
 
